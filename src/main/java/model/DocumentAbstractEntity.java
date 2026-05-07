@@ -13,7 +13,7 @@ public abstract class DocumentAbstractEntity {
     @Version
     protected Integer version;
 
-    @Column(name = "numar_document", nullable = false)
+    @Column(name = "numar_document")
     protected String numarDocument;
 
     @Temporal(TemporalType.DATE)
