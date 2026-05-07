@@ -1,7 +1,5 @@
 package repository;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
 public class TestAbstractRepository {
     public static void main(String[] args) {
         runTest();
