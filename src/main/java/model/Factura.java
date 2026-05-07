@@ -20,7 +20,7 @@ public class Factura extends AbstractEntity{
     private Double restPlata;
 
     @Column(name = "Status_factura")
-    private String stastusFactura;
+    private String statusFactura;
 
     @ManyToOne
     @JoinColumn(name = "id_furnizor")
@@ -66,11 +66,11 @@ public class Factura extends AbstractEntity{
         this.restPlata = restPlata;
     }
 
-    public String getStastusFactura() {
-        return stastusFactura;
+    public String getStatusFactura() {
+        return statusFactura;
     }
 
-    public void setStastusFactura(String stastusFactura) {
-        this.stastusFactura = stastusFactura;
+    public void setStatusFactura(String statusFactura) {
+        this.statusFactura = statusFactura;
     }
 }

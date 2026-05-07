@@ -44,27 +44,20 @@ public class PlataFacturaCtrl {
     //salvare in baza de date
     public void executaPlata() {
         plataRepo.beginTransaction();
+        try {
+            Plata plataNoua = new Plata();
+            plataNoua.setFactura(adapter.getFacturaSelectata());
+            plataNoua.setSumaPlata(adapter.getSumaPlata());
+            plataNoua.setDatPlatii(new Date());
+            plataNoua.setContBancar((adapter.getBancaSelectata().getNumeBanca()));
 
-        Factura fact = adapter.getFacturaSelectata();
-        Double suma = adapter.getSumaPlata();
-
-        Plata plataNoua = new Plata();
-        plataNoua.setFactura(fact);
-        plataNoua.setSumaPlata(suma);
-        plataNoua.setDatPlatii(new Date());
-        plataNoua.setContBancar((adapter.getBancaSelectata().getNumeBanca()));
-
-        //actualizam status factura
-        fact.setRestPlata(fact.getRestPlata() - suma);
-        if (fact.getRestPlata() <= 0) {
-            fact.setStastusFactura("Achitata integral");
+            //apelam metida din repository
+            plataRepo.proceseazaPlata(plataNoua, adapter.getFacturaSelectata());
+            plataRepo.commitTransaction();
+            System.out.println("Plata realizata cu succes!");
+        }catch (Exception e){
+            plataRepo.rollbackTransaction();
+            System.err.println("Eroare la plata: "+ e.getMessage());
         }
-        else {
-            fact.setStastusFactura("Achitata partial");
-        }
-
-        //salvare
-        plataRepo.savePlata(plataNoua);
-        plataRepo.commitTransaction();
     }
 }

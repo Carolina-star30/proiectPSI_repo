@@ -1,6 +1,7 @@
 package repository;
 
 import model.Factura;
+import model.Furnizor;
 import model.Plata;
 
 import java.util.List;
@@ -20,6 +21,24 @@ public class PlataRepository extends AbstractRepository {
     public Plata savePlata (Plata plata){
         //Foloseste metoda create din AbstractRepository pentru INSERT
         return (Plata) this.create(plata);
+    }
+
+    public void proceseazaPlata (Plata plataNoua, Factura factura){
+        //1. Salvezi plata efectiva
+        this.create(plataNoua);
+
+        //2. Update status factura
+        double restNou= factura.getRestPlata() - plataNoua.getSumaPlata();
+        factura.setRestPlata(restNou);
+
+        if(restNou <= 0){
+            factura.setStatusFactura("Achitata integral");
+        }else {
+            factura.setStatusFactura("Achitata partial");
+        }
+
+        //3. Salvam modificarile facturii
+        this.update(factura);
     }
 
 }

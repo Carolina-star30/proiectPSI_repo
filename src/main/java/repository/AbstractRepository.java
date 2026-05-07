@@ -37,5 +37,11 @@ public class AbstractRepository {
     public Object update (Object entity){
         return getEm().merge(entity);
     }
+    public void rollbackTransaction(){
+        //Verificam daca exista o tranzactie activa inainte de a da rollback
+        if(getEm().getTransaction().isActive()){
+            getEm().getTransaction().rollback();
+        }
+    }
 
 }
