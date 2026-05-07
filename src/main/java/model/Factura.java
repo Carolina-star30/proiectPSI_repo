@@ -16,6 +16,12 @@ public class Factura extends AbstractEntity{
     @Column(name = "suma_totala")
     private Double sumaTotala;
 
+    @Column(name = "Rest_de_plata")
+    private Double restPlata;
+
+    @Column(name = "Status_factura")
+    private String stastusFactura;
+
     @ManyToOne
     @JoinColumn(name = "id_furnizor")
     private Furnizor furnizor;
@@ -50,5 +56,21 @@ public class Factura extends AbstractEntity{
 
     public void setFurnizor(Furnizor furnizor) {
         this.furnizor = furnizor;
+    }
+
+    public Double getRestPlata() {
+        return restPlata;
+    }
+
+    public void setRestPlata(Double restPlata) {
+        this.restPlata = restPlata;
+    }
+
+    public String getStastusFactura() {
+        return stastusFactura;
+    }
+
+    public void setStastusFactura(String stastusFactura) {
+        this.stastusFactura = stastusFactura;
     }
 }
