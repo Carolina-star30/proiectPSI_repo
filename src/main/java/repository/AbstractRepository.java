@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 public class AbstractRepository {
 
     private static EntityManager em;
-    public static EntityManager getem(){
+    public static EntityManager getEm(){
         if(em ==null){
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("proiectPSI");
             em= emf.createEntityManager();
@@ -17,18 +17,25 @@ public class AbstractRepository {
 
     //Inițiază tranzacția
     public void beginTransaction(){
-        getem().getTransaction().begin();
+        getEm().getTransaction().begin();
+    }
+
+    //Salveaza comanda
+    public void commitTransaction(){
+        if(getEm().getTransaction().isActive()){
+            getEm().getTransaction().commit();
+        }
     }
 
     //Insert in baza de date
     public Object create ( Object entity){
-        getem().persist(entity);
+        getEm().persist(entity);
         return entity;
     }
 
     //UPDATE IN BD
     public Object update (Object entity){
-        return getem().merge(entity);
+        return getEm().merge(entity);
     }
 
 }
