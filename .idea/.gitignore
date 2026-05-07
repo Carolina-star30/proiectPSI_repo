@@ -9,4 +9,4 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 
-src/main/resources/META-INF/persistence.xml
+**/persistence.xml
