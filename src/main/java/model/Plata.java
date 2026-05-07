@@ -4,12 +4,12 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "PLati")
+@Table(name = "plati")
 public class Plata extends AbstractEntity{
 
     @Temporal(TemporalType.DATE)
     @Column(name = "data_platii")
-    private Date datPlatii;
+    private Date dataPlatii;
 
     @Column(name = "suma_platii")
     private Double sumaPlata;
@@ -17,7 +17,7 @@ public class Plata extends AbstractEntity{
     @Column(name = "cont_bancar")
     private String contBancar;
 
-    @Column(name = "Referinta")
+    @Column(name = "referinta")
     private String referinta;
 
     @ManyToOne
@@ -25,11 +25,11 @@ public class Plata extends AbstractEntity{
     private Factura factura;
 
     public Date getDatPlatii() {
-        return datPlatii;
+        return dataPlatii;
     }
 
     public void setDatPlatii(Date datPlatii) {
-        this.datPlatii = datPlatii;
+        this.dataPlatii = datPlatii;
     }
 
     public Double getSumaPlata() {

@@ -3,7 +3,7 @@ package model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Furnizori")
+@Table(name = "furnizori")
 public class Furnizor extends AbstractEntity{
 
     @Column(name = "nume_furnizor", nullable = false)

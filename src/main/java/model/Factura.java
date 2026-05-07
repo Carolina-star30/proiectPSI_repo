@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Facturi")
+@Table(name = "facturi")
 public class Factura extends AbstractEntity{
 
     @Column(name = "numar_factura")
