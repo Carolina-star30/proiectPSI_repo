@@ -3,6 +3,8 @@ package controller;
 import model.Banca;
 import model.Factura;
 import model.Furnizor;
+
+import java.util.Date;
 import  java.util.List;
 
 public class PlataFacturaAdapter {
@@ -16,7 +18,10 @@ public class PlataFacturaAdapter {
     private Banca bancaSelectata;
     private Furnizor furnizorSelectat;
     private Factura facturaSelectata;
-    private  Double sumaPlata;
+    private Double sumaPlata;
+    private Date dataPlatii;
+    private String referintaExtras;
+    private Double soldDisponibilCont;
 
     public List<Banca> getListaBanci() {
         return listaBanci;
@@ -72,5 +77,29 @@ public class PlataFacturaAdapter {
 
     public void setSumaPlata(Double sumaPlata) {
         this.sumaPlata = sumaPlata;
+    }
+
+    public Date getDataPlatii() {
+        return dataPlatii;
+    }
+
+    public void setDataPlatii(Date dataPlatii) {
+        this.dataPlatii = dataPlatii;
+    }
+
+    public String getReferintaExtras() {
+        return referintaExtras;
+    }
+
+    public void setReferintaExtras(String referintaExtrs) {
+        this.referintaExtras = referintaExtrs;
+    }
+
+    public Double getSoldDisponibilCont() {
+        return soldDisponibilCont;
+    }
+
+    public void setSoldDisponibilCont(Double soldDisponibilCont) {
+        this.soldDisponibilCont = soldDisponibilCont;
     }
 }

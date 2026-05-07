@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "banci")
 
-public class Banca extends AbstractEntity {
+public class Banca extends DocumentAbstractEntity {
 
     @Column(name = "nume_banci")
     private String numeBanca;

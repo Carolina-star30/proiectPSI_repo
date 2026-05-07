@@ -5,13 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "facturi")
-public class Factura extends AbstractEntity{
-
-    @Column(name = "numar_factura")
-    private String numarFactura;
-
-    @Temporal(TemporalType.DATE)
-    private Date dataFactura;
+public class Factura extends DocumentAbstractEntity {
 
     @Column(name = "suma_totala")
     private Double sumaTotala;
@@ -25,22 +19,6 @@ public class Factura extends AbstractEntity{
     @ManyToOne
     @JoinColumn(name = "id_furnizor")
     private Furnizor furnizor;
-
-    public String getNumarFactura() {
-        return numarFactura;
-    }
-
-    public void setNumarFactura(String numarFactura) {
-        this.numarFactura = numarFactura;
-    }
-
-    public Date getDataFactura() {
-        return dataFactura;
-    }
-
-    public void setDataFactura(Date dataFactura) {
-        this.dataFactura = dataFactura;
-    }
 
     public Double getSumaTotala() {
         return sumaTotala;

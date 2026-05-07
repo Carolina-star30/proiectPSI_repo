@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "furnizori")
-public class Furnizor extends AbstractEntity{
+public class Furnizor extends DocumentAbstractEntity {
 
     @Column(name = "nume_furnizor", nullable = false)
     private String nume;
@@ -13,6 +13,9 @@ public class Furnizor extends AbstractEntity{
     private String CUI;
 
     private String adresa;
+
+    @Column(name = "sold")
+    private Double sold;
 
     public String getNume() {
         return nume;
@@ -36,5 +39,13 @@ public class Furnizor extends AbstractEntity{
 
     public void setAdresa(String adresa) {
         this.adresa = adresa;
+    }
+
+    public Double getSold() {
+        return sold;
+    }
+
+    public void setSold(Double sold) {
+        this.sold = sold;
     }
 }

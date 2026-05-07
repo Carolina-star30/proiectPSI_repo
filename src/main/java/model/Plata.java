@@ -5,11 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "plati")
-public class Plata extends AbstractEntity{
-
-    @Temporal(TemporalType.DATE)
-    @Column(name = "data_platii")
-    private Date dataPlatii;
+public class Plata extends DocumentAbstractEntity {
 
     @Column(name = "suma_platii")
     private Double sumaPlata;
@@ -23,14 +19,6 @@ public class Plata extends AbstractEntity{
     @ManyToOne
     @JoinColumn(name = "id_factura")
     private Factura factura;
-
-    public Date getDatPlatii() {
-        return dataPlatii;
-    }
-
-    public void setDatPlatii(Date datPlatii) {
-        this.dataPlatii = datPlatii;
-    }
 
     public Double getSumaPlata() {
         return sumaPlata;
