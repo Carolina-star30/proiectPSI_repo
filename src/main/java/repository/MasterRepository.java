@@ -1,5 +1,6 @@
 package repository;
 
+import model.Banca;
 import model.Furnizor;
 
 import java.util.List;
@@ -10,8 +11,8 @@ import java.util.List;
  */
 
 public class MasterRepository extends AbstractRepository {
-    public List<Object> findAllBanci(){
-        return getEm().createQuery("SELECT b FROM Banca b", Object.class)
+    public List<Banca> findAllBanci(){
+        return getEm().createQuery("SELECT b FROM Banca b", Banca.class)
                       .getResultList();
     }
 
