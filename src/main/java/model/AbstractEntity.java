@@ -1,5 +1,3 @@
-package model;
-
 import javax.persistence.*;
 
 @MappedSuperclass
